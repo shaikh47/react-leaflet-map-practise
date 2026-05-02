@@ -1,7 +1,7 @@
 import "./App.css";
-import { MapProvider } from "./context/MapContext";
-import MapView from "./mapData/MapView";
-import Dashboard from "./control/Dashboard";
+import { MapProvider } from "./context";
+import MapView from "./components/map/MapView";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (

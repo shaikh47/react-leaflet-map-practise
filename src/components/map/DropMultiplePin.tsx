@@ -23,7 +23,21 @@ function DropMultiplePin() {
   return pins.length === 0 ? null : (
     <>
       {pins.map((position, key) => (
-        <Marker key={key} position={position}>
+        <Marker
+          draggable
+          key={key}
+          position={position}
+          eventHandlers={{
+            drag(e) {
+              const marker = e.target;
+              const newPos = marker.getLatLng();
+              const updatedPins = pins.map((pin, i) =>
+                i === key ? newPos : pin,
+              );
+              setPins(updatedPins);
+            },
+          }}
+        >
           <Popup>Dropped pin</Popup>
         </Marker>
       ))}

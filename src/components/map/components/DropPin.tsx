@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Marker, Popup, Polyline, useMap, useMapEvents } from "react-leaflet";
-import { useMapContext } from "../../context/MapContext";
+import L from "leaflet";
+import { useMapContext } from "../../../context/MapContext";
 
 function DropPin() {
   const { setPins, setDistance, userPosition } = useMapContext();
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState<L.LatLng | null>(null);
   const map = useMap();
 
   useMapEvents({

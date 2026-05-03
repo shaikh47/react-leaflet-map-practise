@@ -1,20 +1,25 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import MapStateSync from "./MapStateSync";
-import MyLocationMarker from "./MyLocationMarker";
-import DropMultiplePin from "./DropMultiplePin";
+import "./MapView.css";
+import DropMultiplePin from "./components/DropMultiplePin";
+import DrawCircle from "./components/DrawCircle";
+import ImageOverlay from "./components/ImageOverlay";
 import { TILE_PROVIDERS } from "./constants/providers";
 import { useMapContext } from "../../context/MapContext";
+import MapStateSync from "./components/MapStateSync";
+import MyLocationMarker from "./components/MyLocationMarker";
 
 const MapView: React.FC = () => {
-  const { center, zoom, tileIndex } = useMapContext();
+  const { center, zoom, tileIndex, drawingMode } = useMapContext();
+  const isDraggingDisabled = drawingMode !== "normal";
 
   return (
     <div style={{ flex: 1, height: "100vh" }}>
       <MapContainer
         center={center}
         zoom={zoom}
+        dragging={!isDraggingDisabled}
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
@@ -23,7 +28,9 @@ const MapView: React.FC = () => {
         />
         <MapStateSync />
         <MyLocationMarker />
-        <DropMultiplePin />
+        {!isDraggingDisabled && <DropMultiplePin />}
+        <DrawCircle />
+        <ImageOverlay />
       </MapContainer>
     </div>
   );

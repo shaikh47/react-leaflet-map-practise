@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Marker, Popup, Polyline, useMap, useMapEvents } from "react-leaflet";
-import { calculatePathDistance } from "./utils/calculatePathDistance";
-import { useMapContext } from "../../context/MapContext";
+import { calculatePathDistance } from "../utils/calculatePathDistance";
+import { useMapContext } from "../../../context/MapContext";
 
 function DropMultiplePin() {
   const { pins, setPins, setDistance } = useMapContext();

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Marker, Popup, useMapEvents } from "react-leaflet";
-import { useMapContext } from "../../context/MapContext";
+import { useMapContext } from "../../../context/MapContext";
 import L from "leaflet";
 
 const customIcon = L.divIcon({
@@ -27,7 +27,7 @@ const customIcon = L.divIcon({
 });
 
 function MyLocationMarker() {
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState<L.LatLng | null>(null);
   const { setUserPosition } = useMapContext();
   const map = useMapEvents({
     click() {

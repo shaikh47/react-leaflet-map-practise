@@ -1,5 +1,5 @@
 import { useMapEvents } from "react-leaflet";
-import { useMapContext } from "../../context/MapContext";
+import { useMapContext } from "../../../context/MapContext";
 
 function MapStateSync() {
   const { setCenter, setZoom } = useMapContext();

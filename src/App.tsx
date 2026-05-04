@@ -1,7 +1,7 @@
 import "./App.css";
 import { MapProvider } from "./context";
-import MapView from "./components/map/components";
 import Dashboard from "./components/dashboard";
+import MapView from "./components/map";
 
 function App() {
   return (

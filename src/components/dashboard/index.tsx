@@ -2,6 +2,7 @@ import React from "react";
 import "./Dashboard.css";
 import { useMapContext } from "../../context/MapContext";
 import type { DrawingMode } from "../map/types/circle.types";
+import { MapSelector } from "./MapSelector";
 
 const Dashboard: React.FC = () => {
   const {
@@ -167,6 +168,7 @@ const Dashboard: React.FC = () => {
           </div>
         )}
       </div>
+      <MapSelector />
     </div>
   );
 };

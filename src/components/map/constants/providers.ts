@@ -6,7 +6,7 @@ export const TILE_PROVIDERS = [
   },
   {
     name: "Stamen Terrain",
-    url: "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+    url: "https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.png",
     attribution: "Map tiles by Stamen",
   },
   {

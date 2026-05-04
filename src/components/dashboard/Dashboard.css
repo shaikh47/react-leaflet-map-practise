@@ -49,3 +49,43 @@
   font-weight: 600;
   color: #333;
 }
+
+.map-selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.map-tile-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.map-tile-label {
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.map-tile-box {
+  height: 50px;
+  width: 50px;
+  border: 3px solid black;
+  border-radius: 10px;
+  /* Added a transition for a smoother visual effect when clicking */
+  transition: border-color 0.2s ease-in-out; 
+}
+
+/* Modifier class for the selected state */
+.map-tile-box.active {
+  border-color: blue;
+}
+
+.map-tile-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+}

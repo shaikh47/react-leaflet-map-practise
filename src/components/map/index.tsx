@@ -1,5 +1,5 @@
-import React from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import React, { useEffect } from "react";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 import DropMultiplePin from "./components/DropMultiplePin";
@@ -10,6 +10,21 @@ import { useMapContext } from "../../context/MapContext";
 import MapStateSync from "./components/MapStateSync";
 import MyLocationMarker from "./components/MyLocationMarker";
 
+const MapController: React.FC = () => {
+  const map = useMap();
+  const { drawingMode } = useMapContext();
+
+  useEffect(() => {
+    if (drawingMode !== "normal") {
+      map.dragging.disable();
+    } else {
+      map.dragging.enable();
+    }
+  }, [drawingMode, map]);
+
+  return null;
+};
+
 const MapView: React.FC = () => {
   const { center, zoom, tileIndex, drawingMode } = useMapContext();
   const isDraggingDisabled = drawingMode !== "normal";
@@ -19,9 +34,9 @@ const MapView: React.FC = () => {
       <MapContainer
         center={center}
         zoom={zoom}
-        dragging={!isDraggingDisabled}
         style={{ height: "100%", width: "100%" }}
       >
+        <MapController />
         <TileLayer
           attribution={TILE_PROVIDERS[tileIndex].attribution}
           url={TILE_PROVIDERS[tileIndex].url}

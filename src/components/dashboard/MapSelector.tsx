@@ -1,6 +1,7 @@
 import carto from "../../assets/dashboard/carto.png";
 import open_street from "../../assets/dashboard/open_street.png";
 import stamen from "../../assets/dashboard/stamen.png";
+import satellite from "../../assets/dashboard/satellite.png"
 import { useMapContext } from "../../context/MapContext";
 
 export const MapSelector = () => {
@@ -10,6 +11,7 @@ export const MapSelector = () => {
     { label: "OPEN STREET", src: open_street },
     { label: "Stamen", src: stamen },
     { label: "Carto", src: carto },
+    { label: "Satellite", src: satellite },
   ];
 
   return (

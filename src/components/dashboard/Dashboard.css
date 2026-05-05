@@ -70,9 +70,10 @@
 }
 
 .map-tile-box {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border: 3px solid black;
+  padding: 2px;
   border-radius: 10px;
   /* Added a transition for a smoother visual effect when clicking */
   transition: border-color 0.2s ease-in-out; 
